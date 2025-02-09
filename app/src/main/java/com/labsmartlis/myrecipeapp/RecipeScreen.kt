@@ -2,6 +2,8 @@ package com.labsmartlis.myrecipeapp
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,4 +31,16 @@ fun RecipeScreen(modifier: Modifier = Modifier) {
             }
         }
     }
+}
+
+@Composable
+fun CategoryScreen(categories: List<Category>){
+    LazyVerticalGrid(GridCells.Fixed(2), modifier = Modifier.fillMaxSize()){
+
+    }
+}
+
+@Composable
+fun CategoryItem(category: Category){
+
 }
