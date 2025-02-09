@@ -1,7 +1,9 @@
 package com.labsmartlis.myrecipeapp
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -17,6 +19,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import coil.compose.rememberAsyncImagePainter
 
 @Composable
 fun RecipeScreen(modifier: Modifier = Modifier) {
@@ -48,9 +51,16 @@ fun CategoryScreen(categories: List<Category>){
 
 @Composable
 fun CategoryItem(category: Category){
-    Column(modifier = Modifier.padding(8.dp).fillMaxSize(),
+    Column(modifier = Modifier
+        .padding(8.dp)
+        .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally)
     {
+        Image(
+            painter = rememberAsyncImagePainter(category.strCategoryThumb),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize().aspectRatio(1f)
+        )
         Text(
             text = category.strCategory,
             color = Color.Black,
