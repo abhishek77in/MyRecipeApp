@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.labsmartlis.myrecipeapp"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.labsmartlis.myrecipeapp"
