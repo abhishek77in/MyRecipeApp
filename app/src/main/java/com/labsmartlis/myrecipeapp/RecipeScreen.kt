@@ -36,7 +36,7 @@ fun RecipeScreen(modifier: Modifier = Modifier) {
             }
 
             else ->{
-                // Display categories
+                CategoryScreen(categories = viewstate.list)
             }
         }
     }
@@ -45,7 +45,10 @@ fun RecipeScreen(modifier: Modifier = Modifier) {
 @Composable
 fun CategoryScreen(categories: List<Category>){
     LazyVerticalGrid(GridCells.Fixed(2), modifier = Modifier.fillMaxSize()){
-
+        items(categories){
+            category ->
+            CategoryItem(category = category)
+        }
     }
 }
 
@@ -59,7 +62,9 @@ fun CategoryItem(category: Category){
         Image(
             painter = rememberAsyncImagePainter(category.strCategoryThumb),
             contentDescription = null,
-            modifier = Modifier.fillMaxSize().aspectRatio(1f)
+            modifier = Modifier
+                .fillMaxSize()
+                .aspectRatio(1f)
         )
         Text(
             text = category.strCategory,
